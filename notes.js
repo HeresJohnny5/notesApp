@@ -1,3 +1,5 @@
+'use strict';
+
 const _ = require('lodash');
 
 const Demo = function(name, age, gender) {
