@@ -13,6 +13,11 @@ const user = os.userInfo();
 // });
 
 console.log(`Hello my name is ${notes.john.name} and I'm ${notes.john.age} years old.`);
+
 notes.john.yearOfBirth();
+
 let total = notes.addNumbers(1, 5);
 console.log(total);
+
+let testArray = notes.arrayChunk([1, 2, 3, 4, 5], 2);
+console.log(testArray);
