@@ -1,18 +1,24 @@
 'use strict';
 
-const _ = require('lodash');
-
-const Demo = function(name, age, gender) {
-  this.name = name;
-  this.age = age;
-  this.gender = gender;
+let listAll = () => {
+  console.log('Getting all notes.');
 };
 
-Demo.prototype.yearOfBirth = function() {
-  console.log(2018 - (this.age));
+let readNote = (title) => {
+  console.log(`Reading Note: Title - ${title}`);
 };
 
-module.exports = {};
-module.exports.john = new Demo('John', 39, 'Male');
-module.exports.addNumbers = (a, b) => a + b;
-module.exports.arrayChunk = (array, num) => _.chunk(array, num);
+let addNote = (title, body) => {
+  console.log(`Adding Note: Title - ${title}, Body - ${body}`);
+};
+
+let removeNote = (title) => {
+  console.log(`Removing Note: Title - ${title}`);
+};
+
+module.exports = {
+  listAll,
+  readNote,
+  addNote,
+  removeNote
+};

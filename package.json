@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/HeresJohnny5/notesApp#readme",
   "dependencies": {
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "yargs": "^11.0.0"
   }
 }

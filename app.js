@@ -3,12 +3,14 @@ console.log('Starting app.js');
 // 3rd Party Module Dependencies
 const fs = require('fs');
 const _ = require('lodash');
+const argv = require('yargs').argv;
 
 // Local Module Dependencies
 const notes = require('./notes.js');
 
-let command = process.argv[2];
-console.log('Command:', command);
+let command = argv._[0];
+let title = argv.title;
+let body = argv.body;
 
 // switch statement solution
 // switch(command) {
@@ -31,16 +33,16 @@ console.log('Command:', command);
 // object solution
 const invoke = {
   list() {
-    console.log('Listing all notes.');
+    notes.listAll();
   },
   read() {
-    console.log('Reading note.');
+    notes.readNote(title);
   },
   add() {
-    console.log('Adding new note.');
+    notes.addNote(title, body);
   },
   remove() {
-    console.log('Removing note.');
+    notes.removeNote(title);
   },
   default() {
     console.log('Command not recognized.');
