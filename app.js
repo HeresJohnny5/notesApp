@@ -1,12 +1,14 @@
 console.log('Starting app.js');
 
-// 3rd Party Module Dependencies
-const fs = require('fs');
-const _ = require('lodash');
-const argv = require('yargs').argv;
-
 // Local Module Dependencies
 const notes = require('./notes.js');
+
+// NodeJS Module Dependencies
+const fs = require('fs');
+
+// 3rd Party Module Dependencies
+const _ = require('lodash');
+const argv = require('yargs').argv;
 
 let command = argv._[0];
 let title = argv.title;
