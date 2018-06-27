@@ -41,7 +41,8 @@ const invoke = {
     notes.readNote(title);
   },
   add() {
-    notes.addNote(title, body);
+    var note = notes.addNote(title, body);
+    note ? console.log(`Note created: Title - ${note.title}, Body - ${note.body}.`) : console.log('Note or Body already exists. Please enter a unique note and body.');
   },
   remove() {
     notes.removeNote(title);
