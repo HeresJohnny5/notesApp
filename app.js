@@ -45,7 +45,9 @@ const invoke = {
     note ? console.log(`Note created: Title - ${note.title}, Body - ${note.body}.`) : console.log('Note or Body already exists. Please enter a unique note and body.');
   },
   remove() {
-    notes.removeNote(title);
+    let noteRemoved = notes.removeNote(title);
+
+    noteRemoved ? console.log('Note was removed.') : console.log('Note was not found.');
   },
   default() {
     console.log('Command not recognized.');
