@@ -38,11 +38,13 @@ const invoke = {
     notes.listAll();
   },
   read() {
-    notes.readNote(title);
+    let requestedNote = notes.readNote(title);
+
+    requestedNote.length !== 0 ? notes.logNote(requestedNote[0]) : console.log('Note not found.');
   },
   add() {
     var note = notes.addNote(title, body);
-    note ? console.log(`Note created: Title - ${note.title}, Body - ${note.body}.`) : console.log('Note or Body already exists. Please enter a unique note and body.');
+    note ? notes.logNote(note) : console.log('Note or Body already exists. Please enter a unique note and body.');
   },
   remove() {
     let noteRemoved = notes.removeNote(title);

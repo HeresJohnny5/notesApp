@@ -24,7 +24,11 @@ let listAll = () => {
 };
 
 let readNote = (title) => {
-  console.log(`Reading Note: Title - ${title}`);
+  let notes = fetchNotes();
+
+  let note = notes.filter(note => note.title === title);
+
+  return note;
 };
 
 let addNote = (title, body) => {
@@ -41,6 +45,7 @@ let addNote = (title, body) => {
   if(duplicateNotes.length === 0) {
     notes.push(note);
     saveNotes(notes);
+    console.log('Note added');
     return note;
   };
 };
@@ -55,9 +60,16 @@ let removeNote = (title) => {
   return notes.length !== newNotes.length;
 };
 
+let logNote = (note) => {
+  console.log('--');
+  console.log(`Title: ${note.title}`);
+  console.log(`Body: ${note.body}`);
+};
+
 module.exports = {
   listAll,
   readNote,
   addNote,
   removeNote,
+  logNote
 };
