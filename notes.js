@@ -20,7 +20,7 @@ const saveNotes = (notes) => {
 };
 
 let listAll = () => {
-  console.log('Getting all notes.');
+  return fetchNotes();
 };
 
 let readNote = (title) => {

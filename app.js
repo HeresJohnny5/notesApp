@@ -6,9 +6,37 @@ const notes = require('./notes.js');
 // NodeJS Module Dependencies
 const fs = require('fs');
 
+const requiredArgs = {
+  title: {
+    describe: 'Title of note',
+    demand: true,
+    alias: 't'
+  },
+  body: {
+    describe: 'Body of note',
+    demand: true,
+    alias: 'b'
+  }
+}
+
+console.log(requiredArgs.title);
+
 // 3rd Party Module Dependencies
 const _ = require('lodash');
-const argv = require('yargs').argv;
+const argv = require('yargs')
+  .command('list', 'Get all notes')
+  .command('read', 'Reading note', {
+    title: requiredArgs.title
+  })
+  .command('add', 'Adding note', {
+    title: requiredArgs.title,
+    body: requiredArgs.body
+  })
+  .command('remove', 'Removing note', {
+    title: requiredArgs.title
+  })
+  .help()
+  .argv;
 
 let command = argv._[0];
 let title = argv.title;
@@ -35,7 +63,11 @@ let body = argv.body;
 // object solution
 const invoke = {
   list() {
-    notes.listAll();
+    let allNotes = notes.listAll();
+
+    console.log(`Printing ${allNotes.length} note(s):`);
+
+    allNotes.forEach(note => notes.logNote(note));
   },
   read() {
     let requestedNote = notes.readNote(title);
